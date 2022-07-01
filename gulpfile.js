@@ -26,6 +26,7 @@ const path = {
     img: 'src/images/**/*.*',
     fonts: 'src/fonts/**/*.*',
     libs: 'src/libs/**/*.*',
+    json: 'src/data/**/*.json',
   },
   // За изменением каких файлов мы хотим наблюдать:
   watch: {
@@ -35,6 +36,7 @@ const path = {
     img: 'src/images/**/*.*',
     fonts: 'src/fonts/**/*.*',
     libs: 'src/libs/**/*.*',
+    json: 'src/data/**/*.json',
   },
   // Готовые после сборки файлы переносим сюда:
   dist: {
@@ -44,6 +46,7 @@ const path = {
     img: 'dist/img/',
     fonts: 'dist/fonts/',
     libs: 'dist/libs/',
+    json: 'dist/data/',
   },
   clean: 'dist',
 }
@@ -191,6 +194,13 @@ function fonts() {
     .pipe(reload({ stream: true })) // Обновляем сервер
 }
 
+// Данные (перенос из src в dist)
+function json() {
+  return src(path.src.json) // Вход
+    .pipe(dest(path.dist.json)) // Выход
+    .pipe(reload({ stream: true })) // Обновляем сервер
+}
+
 // Очистка
 function clean(cb) {
   rimraf(path.clean, cb)
@@ -199,17 +209,18 @@ function clean(cb) {
 // Команды:
 
 // Собрать проект
-export const build = series(clean, style, js, image, fonts, libs, html)
+export const build = series(clean, style, js, json, image, fonts, libs, html)
 
 // По дефолту всё собираем и запускаем сервер
-const _default = series(style, js, image, fonts, libs, html, function () {
+const _default = series(style, js, json, image, fonts, libs, html, function () {
   browserSync(config)
   watch(path.watch.html, series(html))
   watch(path.watch.sass, series(style, html))
   watch(path.watch.js, series(js, html))
   watch(path.watch.img, image)
   watch(path.watch.fonts, fonts)
-  watch(path.watch.libs, series(libs, html))
+  watch(path.watch.libs, series(libs, html)),
+  watch(path.watch.json, series(json))
 })
 
 export { _default as default }
