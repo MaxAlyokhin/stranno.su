@@ -101,8 +101,8 @@ export default function language() {
     window.addEventListener('mousemove', (event) => {
       if (
         event.clientY <= 80 &&
-        event.clientX >= window.screen.width * 0.5 - 300 &&
-        event.clientX <= window.screen.width * 0.5 + 300
+        event.clientX >= window.outerWidth * 0.5 - 300 &&
+        event.clientX <= window.outerWidth * 0.5 + 300
       ) {
         enPopupElement.style.transform = 'translateY(115px)'
         ruPopupElement.style.transform = 'translateY(115px)'
