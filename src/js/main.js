@@ -3,7 +3,6 @@ import images from './images.js'
 import language from './language.js'
 
 window.addEventListener('DOMContentLoaded', () => {
-
   fetch('./data/cv.json')
     .then(data => data.json())
     .then((activities) => {
@@ -51,10 +50,10 @@ window.addEventListener('DOMContentLoaded', () => {
         <p>Активности:</p>
         ${cvRussian}
       `
+
+      language() // Настраиваем язык
+      table() // Настраиваем таблицу внизу
     })
-    .then(() => language()) // Настраиваем язык
-    .then(() => table()) // Настраиваем таблицу внизу
-    .then(() => document.querySelector('body').style.opacity = 1) // Показываем контент
 
   // Инициализируем "галерею" только на больших экранах
   window.innerWidth > 1023 ? images() : false
@@ -65,4 +64,23 @@ window.addEventListener('DOMContentLoaded', () => {
         hideControls: false,
       })
   )
+})
+
+window.addEventListener('load', () => {
+  // Грузим медиа
+  document.querySelectorAll('.image').forEach((element) => {
+    element.style.backgroundImage = element.dataset.style
+  })
+
+  document.querySelectorAll('video').forEach((element) => {
+    element.src = element.dataset.src
+  })
+
+  // Показываем текст
+  document.querySelector('.en').style.opacity = 1
+  document.querySelector('.ru').style.opacity = 1
+  document.querySelector('.loader').style.opacity = 0
+  setTimeout(() => {
+    document.querySelector('.loader').style.display = 'none'
+  }, 500)
 })
