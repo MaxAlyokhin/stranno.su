@@ -1,5 +1,45 @@
 [
   {
+    "year": 2023,
+    "url": "//www.webaudioweekly.com/135",
+    "description": {
+      "en": "Web Audio Weekly 135",
+      "ru": "Web Audio Weekly 135"
+    }
+  },
+  {
+    "year": 2023,
+    "url": "//spectactor.thinkific.com/courses/net-art",
+    "description": {
+      "en": "Net Art: A Problematic Introduction",
+      "ru": "Net Art: A Problematic Introduction"
+    }
+  },
+  {
+    "year": 2022,
+    "url": "//22.piksel.no",
+    "description": {
+      "en": "Piksel Festival 2022, Bergen",
+      "ru": "Piksel Festival 2022, Берген"
+    }
+  },
+  {
+    "year": 2022,
+    "url": "//www.webaudioweekly.com/132",
+    "description": {
+      "en": "Web Audio Weekly 132",
+      "ru": "Web Audio Weekly 132"
+    }
+  },
+  {
+    "year": 2022,
+    "url": "//zenodo.org/record/6770197#.Ysn7CHZBwrY",
+    "description": {
+      "en": "Web Audio Conference, Université Côte d'Azur, Cannes, France",
+      "ru": "Web Audio Conference, Университет Лазурного Берега, Канны, Франция"
+    }
+  },
+  {
     "year": 2022,
     "url": "//kovalenkomuseum.ru/item/499-otkpylasy-vystavka-v-pamkah-ezhegodnogo-festivalya-sovpemennogo-iskusstva-zepkalo-epohi",
     "description": {
